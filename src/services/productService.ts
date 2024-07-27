@@ -15,7 +15,7 @@ export class ProductService {
 
   async updateProduct(product: ProductDto): Promise<ProductDto> {
     if (!product.id) {
-      throw new Error("Product is required");
+      throw new Error("Product id  is required");
     }
 
     return await this._repository.update(product);

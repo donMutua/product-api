@@ -1,5 +1,6 @@
 import { ProductDto } from "../dto/product.dto";
 import { IProductRepository } from "../interfaces/IProductRepository";
+import { Product } from "../models/productModel";
 
 export class MockProductRepository implements IProductRepository {
   create(product: ProductDto): Promise<ProductDto> {
@@ -12,9 +13,9 @@ export class MockProductRepository implements IProductRepository {
     return Promise.resolve(id);
   }
   findAll(limit: number, offset: number): Promise<ProductDto[]> {
-    throw new Error("Method not implemented.");
+    return Promise.resolve([]);
   }
   findById(id: number): Promise<ProductDto | null> {
-    throw new Error("Method not implemented.");
+    return Promise.resolve({ id }) as unknown as Promise<Product>;
   }
 }
